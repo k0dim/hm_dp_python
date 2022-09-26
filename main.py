@@ -20,10 +20,9 @@ def clicked():
     elif combo_values == 'Удалить клиента':
         window_delete_pers()
     elif combo_values == 'Найти клиента':
-        select_db()
+        window_select()
     
-    # def __init__(self):
-# class Win1():
+
 window = Tk()
 window.title("Работа с PostgreSQL из Python")
 window.geometry('700x250')
@@ -38,6 +37,3 @@ comdo.grid(column=1, row=3)
 btn = Button(window, text='Выбрать', command=clicked)
 btn.grid(column=2, row=3)
 window.mainloop()
-
-# if __name__ == '__main__':
-#     app = Win1()

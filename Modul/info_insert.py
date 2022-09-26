@@ -126,19 +126,20 @@ def window_delete_pers():
     window.mainloop()
 
 # 6 Найти клиента
-def select_db():
+def window_select():
     def clicke():
         sql_reqest_select = ''
         if id_sql.get() == 1:
-            sql_reqest_select = sql_reqest_select + f' AND persone_id = {persone_id.get()}'
+            sql_reqest_select = sql_reqest_select + f" AND c.persone_id = {persone_id.get()}"
         if name_sql.get() == 1:
-            sql_reqest_select = sql_reqest_select + f' AND name = {entry_name.get()}'
+            sql_reqest_select = sql_reqest_select + f" AND name = '{entry_name.get()}'"
         if surename_sql.get() == 1:
-            sql_reqest_select = sql_reqest_select + f' AND surename = {entry_surename.get()}'
+            sql_reqest_select = sql_reqest_select + f" AND surename = '{entry_surename.get()}'"
         if email_sql.get() == 1:
-            sql_reqest_select = sql_reqest_select + f' AND email = {entry_email.get()}'
+            sql_reqest_select = sql_reqest_select + f" AND email = '{(entry_email.get())}'"
         if num_phone_sql.get() == 1:
-            sql_reqest_select = sql_reqest_select + f' AND num_phone = {num_phone.get()}'
+            sql_reqest_select = sql_reqest_select + f" AND num_phone = {num_phone.get()}"
+        # print(sql_reqest_select)
         select_db(sql_reqest_select)
     # Новое окно
     window = Toplevel()

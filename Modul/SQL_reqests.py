@@ -179,7 +179,14 @@ def select_db(sql_reqest_select):
         with psycopg2.connect(database= "customer", user= "postgres", password= "postgres") as conn:
             with conn.cursor() as cur:
                 cur.execute(all_request)
-        mb.showinfo("Успех", 'fetchall', cur.fetchall())
+                respons_sql = ('fetchall', cur.fetchall())
+                mb.showinfo("Успех", f'''
+                Идентификатор клиента: {respons_sql[1][0][0]}
+                Имя: {respons_sql[1][0][1]}
+                Фамилия: {respons_sql[1][0][2]}
+                Эл. почта: {respons_sql[1][0][3]}
+                Номер телефона: {respons_sql[1][0][4]}
+                ''')
     except:
         mb.showerror("Ошибка", "Вроде не получилось. Откат транзакции")
         conn.rollback()
